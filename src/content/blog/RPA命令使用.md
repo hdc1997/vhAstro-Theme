@@ -5,7 +5,7 @@ categories: 工作
 tags: ["笔记", "使用流程"]
 id: "biji"
 date: 2024-02-22 14:19:01
-cover: "https://i0.wp.com/uxiaohan.github.io/v2/2025/04/1744018738123.webp"
+cover: ""
 
 ---
 

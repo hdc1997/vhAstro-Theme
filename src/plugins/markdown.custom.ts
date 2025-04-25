@@ -28,7 +28,17 @@ const remarkNote = () => {
         // 设置 class
         hProperties.class = `vh-node vh-${name}${attributes.type ? ` ${name}-${attributes.type}` : ''}`;
         // 文章字数统计
-        const textOnPage = toString(tree);
+        let textOnPage = toString(tree);
+        // 过滤Markdown语法标记
+        textOnPage = textOnPage
+          .replace(/\[([^\]]+)\]\([^\)]+\)/g, '$1') // 过滤链接
+          .replace(/\*\*([^*]+)\*\*/g, '$1') // 过滤加粗
+          .replace(/\*([^*]+)\*/g, '$1') // 过滤斜体
+          .replace(/`([^`]+)`/g, '$1') // 过滤代码块
+          .replace(/<!--[\s\S]*?-->/g, '') // 过滤注释
+          .replace(/^#+\s+/gm, '') // 过滤标题
+          .replace(/\n{3,}/g, '\n\n') // 合并多余空行
+          .trim();
         const readingTime = getReadingTime(textOnPage);
         astroData.astro.frontmatter.reading_time = readingTime.minutes
         astroData.astro.frontmatter.article_word_count = readingTime.words
@@ -68,4 +78,4 @@ const addClassNames = () => {
   };
 }
 
-export { remarkNote, addClassNames } 
+export { remarkNote, addClassNames }

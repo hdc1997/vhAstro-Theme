@@ -6,6 +6,18 @@ pnpm build
 pnpm run dev
 
 
+## 新建文章命令
+
+使用以下命令可以快速新建一篇文章：
+
+npm run newpost '文章标题'
+
+或
+
+pnpm newpost '文章标题'
+
+请将“文章标题”替换为你想要创建的文章名称。
+
 
 ## 提交github命令
 
@@ -16,7 +28,7 @@ git status
 git add .
 
 ### 3. 提交更改到本地仓库
-git commit -m "你的提交信息"
+git commit -m "修改图片读取路径"
 
 ### 4. 拉取远程仓库的最新更改并合并
 git pull origin main
