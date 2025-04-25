@@ -45,3 +45,39 @@ git push origin main
 ## 如果需要强制推送（覆盖远程内容）
 
 git push origin main --force
+
+
+
+
+
+## 解决git status出现不干净内容提示
+
+ 统一换行符
+
+```
+git add --renormalize .              
+```
+
+
+
+ 命令批量移除所有丢失的文件
+
+```
+git ls-files --deleted -z | xargs -0 git rm --cached 
+```
+
+
+
+重新规范化文件的换行符，将所有文件的换行符转换为 LF 格式：
+
+```
+git add --renormalize .
+git commit -m "提交信息"
+```
+
+
+
+
+
+
+
